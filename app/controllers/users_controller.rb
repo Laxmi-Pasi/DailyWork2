@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
+  protect_from_forgery except: :index
   before_action :set_user, only: %i[ show edit update destroy ]
 
   def index
     @users = User.all
+
+    #for javascipt practice
+    #render js: "alert('The username to be displayed is: #{params[:name]}')"
   end
 
   def show

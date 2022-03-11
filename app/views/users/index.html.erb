@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Users</h1>
-
 <div id="users">
   <% @users.each do |user| %>
     First Name :<%= user.first_name %><br/>
@@ -11,5 +9,61 @@
     </p>
   <% end %>
 </div>
+<%= link_to "New user", new_user_path %><br/><br/>
+<%# practice code for JavaScript %>
 
-<%= link_to "New user", new_user_path %>
+<a href="#" onclick="this.style.backgroundColor='#990000'">Paint it red</a><br>
+
+<a href="#" onclick="this.style.backgroundColor='#009900';this.style.color='#FFFFFF';">Paint it green</a> 
+<br>
+<a href="#" onclick="paintIt(this, '#990000')">Laxmi</a>
+
+<br>
+<a href="#" data-background-color="#990000">Paint it red</a><br>
+<a href="#" data-background-color="#009900" data-text-color="#FFFFFF">Paint it green</a><br>
+<a href="#" data-background-color="#000099" data-text-color="#FFFFFF">Paint it blue</a><br>
+
+<h1>Hello, Rails!</h1>
+<button id="greet-user-button">Hello!</button>
+<%= javascript_tag 'main'%>
+
+
+
+<br>
+<br>
+<br>
+<a href="#" onclick="this.style.backgroundColor='#990000';event.preventDefault();">Paint it red</a>
+<a href="#" onclick="paintIt(event, '#990000')">Paint it red</a>
+<a href="#" onclick="paintIt(event, '#990000')">Paint it red</a>
+<a href="#" onclick="paintIt(event, '#009900', '#FFFFFF')">Paint it green</a>
+<a href="#" onclick="paintIt(event, '#000099', '#FFFFFF')">Paint it blue</a>
+<br>
+<br><br>
+<a href="#" data-background-color="#990000">Paint it red</a>
+<a href="#" data-background-color="#009900" data-text-color="#FFFFFF">Paint it green</a>
+<a href="#" data-background-color="#000099" data-text-color="#FFFFFF">Paint it blue</a>
+<%= button_to "Dangerous zone", new_user_path,data: { confirm: 'Are you sure?' },method: :get %>
+
+
+
+
+<script>
+  function paintIt(element, backgroundColor, textColor) {
+  element.style.backgroundColor = backgroundColor;
+  if (textColor) {
+      element.style.color = textColor;
+  }
+}
+
+function paintIt(element, backgroundColor, textColor) {
+  element.style.backgroundColor = backgroundColor;
+  if (textColor) {
+      element.style.color = textColor;
+  }
+}
+$ ->
+  $("a[data-background-color]").click ->
+    backgroundColor = $(this).data("background-color")
+    textColor = $(this).data("text-color")
+    paintIt(this, backgroundColor, textColor)
+</script>

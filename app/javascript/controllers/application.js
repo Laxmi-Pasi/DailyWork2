@@ -7,3 +7,5 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+
+//----------------------------practice code for javascript-------------------------
