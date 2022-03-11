@@ -1,0 +1,16 @@
+<%= form_with(model: user) do |form| %>
+  <% if flash[:errors] %>
+    <ul>
+      <% flash[:errors].each do |error| %>
+        <li style="color:red;"><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :first_name%>
+    <%= form.text_field :first_name%>
+    <%= form.label :email%>
+    <%= form.text_field :email%>
+    <%= form.submit %>
+  </div>
+<% end %>
