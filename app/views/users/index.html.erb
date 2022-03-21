@@ -6,6 +6,7 @@
   <% @users.each do |user| %>
     First Name :<%= user.first_name %><br/>
     Email: <%= user.email %> <br/>
+    <%= user.title %>
     <p>
       <%= link_to "Show this user", user %>
     </p>
