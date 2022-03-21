@@ -286,10 +286,162 @@ require "active_support/all"
 # p "dude".pluralize(1) # => "dude"  for only count =1 singular form will be return else return plural
 # p "dude".pluralize(2) # => "dudes"
 
-p "tables".singularize    # => "table"
-p "rubies".singularize    # => "ruby"
-p "equipment".singularize # => "equipment"
+# p "tables".singularize    # => "table"
+# p "rubies".singularize    # => "ruby"
+# p "equipment".singularize # => "equipment"
 
-p "product".camelize    # => "Product"
-p "admin_user".camelize # => "AdminUser"
-p "backoffice/session".camelize # => "Backoffice::Session"
+# p "product".camelize    # => "Product"
+# p "admin_user".camelize # => "AdminUser"
+# p "backoffice/session".camelize # => "Backoffice::Session"
+
+# p "   hey, laxmi! how are you?    ".squish
+
+# p "foo"
+# p "foo".indent(2)
+# p "laxmi\tpasi".indent(2, "\t")
+# p "laxmi\npasi".indent(2,"*")
+# p "foo\nbar".indent(2,"+")
+
+# p "laxmi".at(-2)
+# p "laxmi".from(-2)
+# p "laxmi".to(-2)
+# p "visual_effect".camelize
+# p "visualEffect".underscore
+# p "alice in wonderland".titleize # => "Alice In Wonderland"
+# p "fermat's enigma".titleize     # => "Fermat's Enigma"
+# p "name".dasherize         # => "name"
+# p "contact_data".dasherize # => "contact-data"
+# p "Product".demodulize                        # => "Product"
+# p "Backoffice::UsersController".demodulize    # => "UsersController"
+# p "Admin::Hotel::ReservationUtils".demodulize # => "ReservationUtils"
+# p "::Inflections".demodulize                  # => "Inflections"
+# p "".demodulize                               # => ""
+# p "Product".deconstantize                        # => ""
+# p "Backoffice::UsersController".deconstantize    # => "Backoffice"
+# p "Admin::Hotel::ReservationUtils".deconstantize # => "Admin::Hotel"
+
+# p "John Smith".parameterize # => "john-smith"
+# p "Kurt Gödel".parameterize # => "kurt-godel"
+# p "Person".tableize      # => "people"
+# p "Invoice".tableize     # => "invoices"
+# p "InvoiceLine".tableize # => "invoice_lines"
+
+# p "name".humanize                         # => "Name"
+# p "author_id".humanize                    # => "Author"
+# p "author_id".humanize(capitalize: false) # => "author"
+# p "comments_count".humanize               # => "Comments count"
+# p "_id".humanize                          # => "Id"
+# p "User".foreign_key           # => "user_id"
+# p "InvoiceLine".foreign_key    # => "invoice_line_id"
+# p "Admin::Session".foreign_key # => "session_id"
+# p "User".foreign_key(false) # => "userid"
+# p "2010-07-27".to_date              # => Tue, 27 Jul 2010
+# p "2010-07-27 23:37:00".to_time     # => 2010-07-27 23:37:00 +0200
+# p "2010-07-27 23:37:00".to_datetime # => Tue, 27 Jul 2010 23:37:00 +0000
+#  # equivalent to Time.current.advance(days: 1)
+# p 1.day.from_now
+
+# # equivalent to Time.current.advance(weeks: 2)
+# p 2.weeks.from_now
+
+# # equivalent to Time.current.advance(days: 4, weeks: 5)
+# p (4.days + 5.weeks).from_now
+
+# p 123.to_fs(:human)               # => "123"
+# p 1234.to_fs(:human)              # => "1.23 Thousand"
+# p 12345.to_fs(:human)             # => "12.3 Thousand"
+# p 1234567.to_fs(:human)           # => "1.23 Million"
+# p 1234567890.to_fs(:human)        # => "1.23 Billion"
+# p 1234567890123.to_fs(:human)     # => "1.23 Trillion"
+# p 1234567890123456.to_fs(:human)  # => "1.23 Quadrillion"
+# p [1, 2, 3].sum # => 6
+# p (1..100).sum  # => 5050
+
+# p [ 1, 2, 3 ].including(4, 5)                    # => [ 1, 2, 3, 4, 5 ]
+# p ["David", "Rafael"].including %w[ Aaron Todd ] # => ["David", "Rafael", "Aaron", "Todd"]
+
+# p [ 1, 2, 3 ].include?(4)                    # =>false
+# p ["David", "Rafael", "Aaron", "Todd"].excluding("Aaron", "Todd") # => ["David", "Rafael"]
+# p ["David", "Rafael", "Aaron", "Todd"].exclude?("Aaron") # => false
+# p ["David", "Rafael", "Aaron", "Todd"].exclude?("laxmi") # true
+
+# a = [{ id:1,name:"laxmi"},{id:2, name:"dhara"}]
+# p a.pluck(:id)
+# p a.pick(:id)
+# p %w(a b c d).to(2) # => ["a", "b", "c"]
+# p [].to(7)          # => []
+# p %w(a b c d).from(2)  # => ["c", "d"]
+# p %w(a b c d).from(10) # => []
+# p [].from(0)           # => []
+# p %w(a b c d).third # => "c"
+# p %w(a b c d).fifth # => nil
+
+# numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# p odd_numbers = numbers.extract! { |number| number.odd? } # => [1, 3, 5, 7, 9]
+# p numbers # => [0, 2, 4, 6, 8]
+
+# user = [{id:1,name:"laxmi",email:"lp@gmail.com"}]
+# #p user.exists?(email:"lp@gmail.com")  #getting error
+
+# # p %w(Earth Wind).to_sentence      # => "Earth and Wind"
+# # p %w(Earth Wind Fire).to_sentence # => "Earth, Wind, and Fire"
+# #p [{a: 1, b: 2}, {c: 3}].to_xml
+# array = [1, [2, 3]]
+# dup = array.deep_dup
+# # p dup[1][1]
+# # p array[0]
+# dup[1][2] = 4
+# p dup
+# p array
+# array[1][2] == nil   # => true
+# p [1, 2, 3].in_groups_of(2) # => [[1, 2], [3, nil]]
+# p [1, 2, 3].in_groups_of(2, 0) # => [[1, 2], [3, 0]]
+# p %w(1 2 3 4 5 6 7).in_groups(3) # => [["1", "2", "3"], ["4", "5", nil], ["6", "7", nil]]
+# p %w(1 2 3 4 5 6 7).in_groups_of(3) #[["1", "2", "3"], ["4", "5", "6"], ["7", nil, nil]]
+# p (-5..5).to_a.split { |i| i.multiple_of?(4) }
+# => [[-5], [-3, -2, -1], [1, 2, 3], [5]]
+aa = { a:1, b:1}
+# p aa.merge(a: 0, c: 2, d:4)
+# # => {:a=>0, :b=>1, :c=>2, :d =>4}
+# p aa
+# p aa.reverse_merge(a: 0, c: 2, d:4) # => {:a=>0, :c=>2, :d =>4, :b =>1}
+# aa1 = { a:1, b:1}
+# p aa1.reverse_merge!(a: 0, c: 2, d:4) #{:a=>1, :c=>2, :d=>4, :b=>1}
+# p aa1                                #{:a=>1, :c=>2, :d=>4, :b=>1}
+hash1= {a: {b: 1}}
+# p hash1.deep_merge(a: {c: 2}) # => {:a=>{:b=>1, :c=>2}}
+# p hash1  #{:a=>{:b=>1}}
+
+# hash2 = {a: {b:1}}
+# p hash1.deep_merge!(a: {c: 2}) in all bank symbol is used to give a changes in
+# original data where without bank it will create new object and doesn't modify previous data
+h2 = {nil => nil, 1 => 1, nested: {a: 3, 5 => 5}}
+
+# p h2.stringify_keys #{""=>nil, "1"=>1, "nested"=>{:a=>3, 5=>5}}
+# p h2.deep_stringify_keys
+# # => {""=>nil, "1"=>1, "nested"=>{"a"=>3, "5"=>5}}
+
+# h3 = {nil => nil, 1 => 1, "a" => "a"}
+# p h3.symbolize_keys
+# # => {nil=>nil, 1=>1, :a=>"a"}
+# h4 ={nil => nil, 1 => 1, "nested" => {"a" => 3, 5 => 5}}
+# p h4.deep_symbolize_keys
+# p hash1.assert_valid_keys(:a)  # passes
+# # p {a: 1}.assert_valid_keys("a") # ArgumentError
+# hash = { person: { name: 'Rob', age: '28' } }
+
+# p hash.deep_transform_values{ |value| value.to_s.upcase }
+# # => {person: {name: "ROB", age: "28"}}
+h5 = { a:"laxmi", b:"dhara", c:"twinkle"}
+h6 = h5.slice!(:a,:b)
+p h5
+p h6
+h11 = { a:"laxmi", b:"dhara", c:"twinkle"}
+h = h11.extract!(:a,:b)
+p h11
+p h
+now = Time.current
+p now.all_day
+t = Time.new(2010, 5, 8) # => 2010-05-08 00:00:00 +0900
+p t.prev_year              # => 2009-05-08 00:00:00 +0900
+p t.next_year              # => 2011-05-08 00:00:00 +0900
