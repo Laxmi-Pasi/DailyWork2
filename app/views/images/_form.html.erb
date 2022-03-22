@@ -15,6 +15,16 @@
     <%= form.label :image_name, style: "display: block" %>
     <%= form.file_field :image_name %>
   </div>
+  <%#= form.hidden_field :pre_name, value: form.object.image_name if form.object.image_name.attached? %>
+  <div>
+    <%= form.label :documents, style: "display: block" %>
+    <%= form.file_field :documents, multiple: true %>
+  </div>
+  <div>
+    <%= form.label :file_name, style: "display: block" %>
+    <%= form.file_field :file_name, accept: "application/pdf" %>
+  </div>
+ <%#= form.hidden_field :pre_file, value: form.object.file_name if form.object.file_name.attached? %>
 
   <div>
     <%= form.submit %>
