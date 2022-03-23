@@ -2,15 +2,16 @@
 First Name :<%= @user.first_name %><br/>
 Email: <%= @user.email %> <br/>
 <% if !@user.avatar.file.nil?%>
-  Image: <br><%= image_tag(@user.avatar.url, style:"height:100px;width:100px; ")%><br>
+  Image: <br><%= image_tag(@user.avatar.url(:thumb))%><br>
   Avatar Url: <%= @user.avatar.url %> <br/>
   Avatar current_path: <%= @user.avatar.current_path %> <br/>
   Avatar identifier: <%= @user.avatar_identifier %> <br/>
+  
 <% end %>
 <% if @user.avatars_identifiers%>
   Avatars<br>
   <% @user.avatars.each do |img|%>
-  <%= image_tag(img.url, style:"height:100px;width:100px; padding:5px; ")%>
+  <%= image_tag(img.url(:thumb))%>
   <% end %>
 <% end %>
 <div>
