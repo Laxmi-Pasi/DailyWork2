@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #@user.avatar = params[:user][:avatar] 
     if @user.save && !@user.avatar.file.nil?
+      UserMailer.with(user: @user).welcome_email.deliver_later
       redirect_to user_path(@user)
     else
       @user.errors.add(:base, "avatar can't be nil") if @user.avatar.file.nil?
