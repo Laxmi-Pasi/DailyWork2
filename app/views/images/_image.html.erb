@@ -1,0 +1,31 @@
+<div id="<%= dom_id image %>">
+  <p>
+   
+    <%#= image_tag(image.image_name) %>
+    <%#= image_tag image.image_name.variant( saver: { quality: 30}) %>
+    <%#= link_to image_tag(image.image_as_thumbnail), image.image_name %>
+    <% if image.image_name.attached?%>
+       <strong>Image:</strong><br>
+      <%= link_to image_tag image.image_name.variant(:thumb) %><br>
+      <%= link_to 'Download Image', image.image_name, download: 'data' %><br>
+      <%= button_to 'delete image',delete_image_image_path(image), method: :delete %>
+    <% end %>
+     <% if image.file_name.attached?%>
+       <strong>file:</strong><br>
+      <%#= link_to image_tag image.image_name.variant(:thumb) %><br>
+      <%= link_to 'Download file', image.file_name, download: 'data' %><br>
+      <%= link_to 'View  file', image.file_name %><br>
+      <%#= button_to 'delete image',delete_image_image_path(image), method: :delete %>
+    <% end %>
+    <% if image.documents.attached?%>
+        <strong>Documents:</strong><br>
+      <% image.documents.each do |doc|%>
+        <%#= image_tag(doc)%>  
+        <%= image_tag doc.variant(:thumb) %>
+        <%= link_to 'Download Image', doc, download: 'data' %><br>
+        <%= button_to 'delete document',delete_documents_image_path(image), method: :delete, params: { doc_id:doc.id} %>
+      <<% end %>%>
+    <% end %>
+  </p>
+
+</div>
