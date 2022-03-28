@@ -1,6 +1,7 @@
 class Post1sController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post1, only: %i[ show edit update destroy ]
-
+  
   # GET /post1s or /post1s.json
   def index
     @post1s = Post1.all
@@ -22,7 +23,7 @@ class Post1sController < ApplicationController
   # POST /post1s or /post1s.json
   def create
     @post1 = Post1.new(post1_params)
-
+    @post1.user_id = current_user.id
     respond_to do |format|
       if @post1.save
         format.html { redirect_to post1_url(@post1), notice: "Post1 was successfully created." }
