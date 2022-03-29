@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <% if current_user%> Loggned in:<%=current_user.email%><% end %>
     <%= yield %>
   </body>
 </html>

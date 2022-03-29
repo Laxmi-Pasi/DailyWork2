@@ -3,8 +3,8 @@
 <%= render @post1 %>
 
 <div>
-  <%= link_to "Edit this post1", edit_post1_path(@post1) %> |
+  <% if can? :update, @post1 %><%= link_to "Edit this post1", edit_post1_path(@post1) %> | <% end %>
   <%= link_to "Back to post1s", post1s_path %>
 
-  <%= button_to "Destroy this post1", @post1, method: :delete %>
+  <% if can? :update, @post1 %><%= button_to "Destroy this post1", @post1, method: :delete %> <% end %>
 </div>
