@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :images do
     member do
@@ -5,5 +6,6 @@ Rails.application.routes.draw do
       delete :delete_documents  #to delete documents images 
     end
   end
+  mount Sidekiq::Web => '/sidekiq'
   resources :users
 end
