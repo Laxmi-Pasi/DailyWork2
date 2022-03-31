@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    binding.pry
+    @user.save
     GenerateRandomUserJob.perform_later(@user)
     # if @user.save
     #   redirect_to user_path(@user)
