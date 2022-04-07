@@ -45,6 +45,6 @@ class UsersController < ApplicationController
     end
     
     def user_params
-      params.require(:user).permit(:email, :first_name) 
+      params.require(:user).permit(:email, :first_name, userfeedbacks_attributes: Userfeedback.attribute_names.map(&:to_sym).push(:_destroy)) 
     end
 end

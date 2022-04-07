@@ -13,6 +13,9 @@ gem "sprockets-rails"
 gem "sqlite3"
 gem "image_processing", ">= 1.2"
 
+#use jquery https://github.com/rails/jquery-ujs
+
+gem 'jquery-rails'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -28,6 +31,10 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+# cocoon gem https://youtu.be/56xjUOAAZY8
+gem "cocoon"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

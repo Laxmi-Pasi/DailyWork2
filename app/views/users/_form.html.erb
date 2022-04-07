@@ -1,4 +1,4 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user) do |f| %>
   <% if flash[:errors] %>
     <ul>
       <% flash[:errors].each do |error| %>
@@ -7,10 +7,18 @@
     </ul>
   <% end %>
   <div>
-    <%= form.label :first_name%>
-    <%= form.text_field :first_name%>
-    <%= form.label :email%>
-    <%= form.text_field :email%>
-    <%= form.submit %>
+    <%= f.label :first_name%>
+    <%= f.text_field :first_name%>
+    <%= f.label :email%>
+    <%= f.text_field :email%>
+
+    <div class="userfeedbacks">
+      <%=f.fields_for :userfeedbacks do |builder|%>
+        <%= render 'userfeedback_fields', f: builder %>
+      <% end %>
+
+    </div>
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add feedback', f, :userfeedbacks, data: {association_insertion_node: '.userfeedbacks', association_insertion_method: :append}%>
   </div>
 <% end %>
