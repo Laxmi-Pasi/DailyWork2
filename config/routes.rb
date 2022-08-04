@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :images do
     member do
       delete :delete_image   #to delete image which is inside image_name
@@ -6,4 +7,8 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+
+  # elastic-search
+  resources :books, only: [:index]
+
 end
