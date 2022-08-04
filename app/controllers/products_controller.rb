@@ -3,7 +3,13 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    search = params[:query].present? ? params[:query] : nil
+    @products = if search
+      # Product.search(search)
+      Product.search(search, fields: [{name: :text_middle}, {details: :text_middle}])
+    else
+      Product.all
+    end
   end
 
   # GET /products/1 or /products/1.json

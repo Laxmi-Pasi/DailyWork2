@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 10.times do
   Product.create!(
-    name: Faker::Lorem.words(number: rand(2)).join(' '),
-    details: Faker::Lorem.words(number: rand(2..10)).join(' ')
+    name: Faker::Name.name,
+    details: Faker::Quotes::Shakespeare.hamlet
   )
 end

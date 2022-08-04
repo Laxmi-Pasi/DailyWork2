@@ -1,14 +1,38 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Products</h1>
-
-<div id="products">
+<head>
+  <style>
+    body{
+      text-align:center;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding:10px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+<center>
+   <div class="col-4">
+    <%= form_tag products_path, :method => 'get'  do %>
+      <%= text_field_tag :query, params[:query], placeholder: 'Search email is present or not' %>
+        <span>
+          <%= submit_tag "search"%>
+        </span>
+    <% end %>
+  </div>
+  <h1>product Table </h1>
+  <table>
+    <tr>
+      <td>product Name</td><td>isbn</td>
   <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+    <tr>
+      <td><%=product.name %></td>
+      <td><%=product.details %></td>
+    </tr>
   <% end %>
-</div>
+  </table>
 
-<%= link_to "New product", new_product_path %>
+</center>
+
+</body>
