@@ -1,17 +1,21 @@
 class BooksController < ApplicationController
   def index
-    response = Book.__elasticsearch__.search(
-      query: {
-        multi_match: {
-          query: params[:query],
-          fields: ['name', 'author.first_name', 'author.last_name', 'isbn']
+    if params[:query]
+      response = Book.__elasticsearch__.search(
+        query: {
+          multi_match: {
+            query: params[:query],
+            fields: ['name', 'author.first_name', 'author.last_name', 'isbn']
+          }
         }
-      }
-    ).results
-    @book = Book.all
-    render json: {
-      results: response.results,
-      total: response.total
-    }
+      ).results 
+      @books = response.results
+    else
+      @books = Book.all
+    end
+    # render json: {
+    #   results: response.results,
+    #   total: response.total
+    # }
   end
 end
