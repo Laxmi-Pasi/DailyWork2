@@ -83,3 +83,4 @@ group :development, :test do
 end
 gem "searchkick"
 gem  "elasticsearch", "< 7.14"
+gem 'jquery-rails'
