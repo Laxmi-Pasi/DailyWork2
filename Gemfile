@@ -81,3 +81,6 @@ group :development, :test do
   gem 'rspec-rails', ">= 3.9.0"
   gem "rails-controller-testing"
 end
+gem "searchkick"
+gem  "elasticsearch", "< 7.14"
+gem 'jquery-rails'
