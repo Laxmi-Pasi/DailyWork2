@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 10.times do
   Product.create!(
-    name: Faker::Name.name,
+    name: Faker::Commerce.product_name,
     details: Faker::Quotes::Shakespeare.hamlet
   )
 end

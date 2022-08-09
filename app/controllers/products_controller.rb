@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
     else
       Product.all
     end
+    
+    @products_name = Product.all.pluck(:name)
   end
 
   # GET /products/1 or /products/1.json
@@ -23,6 +25,13 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+  end
+
+  def autocomplete
+    
+    # binding.pry
+    
+    render json: Product.search(params[:query], fields: ["name", "details"],match: :text_middle,limit: 10,load: false, misspellings: {below: 5}).map(&:name)
   end
 
   # POST /products or /products.json
